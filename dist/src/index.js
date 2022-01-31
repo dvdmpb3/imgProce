@@ -214,7 +214,7 @@ function rain2(evt) {
 var numberparti = 1000;
 var particlesArr;
 particlesArr = new Array(0);
-function iniciarRotacion() {
+function iniciarParticula() {
     var imagenSal = new ImageType(pantalla1, imgLocal.getImage());
     w = imagenSal.getWidth();
     h = imagenSal.getHeight();
@@ -222,7 +222,7 @@ function iniciarRotacion() {
         particlesArr.push(new ParticleFlotante(w, h, ctx));
     }
 }
-function animarRotacion() {
+function animacion() {
     ctx.drawImage(imgLocal.getImage(), 0, 0, w, h);
     ctx.globalAlpha = 0.25;
     ctx.fillStyle = 'rgb(0,0,0)';
@@ -231,11 +231,11 @@ function animarRotacion() {
         particlesArr[i].update();
         particlesArr[i].draw();
     }
-    requestAnimationFrame(animarRotacion);
+    requestAnimationFrame(animacion);
 }
-function flotante(evt) {
-    iniciarRotacion();
-    animarRotacion();
+function particulasflotante(evt) {
+    iniciarParticula();
+    animacion();
 }
 //codigo para efecto de particulas
 var particleArray;
@@ -354,7 +354,7 @@ document.getElementById("op-div").addEventListener('click', div, false);
 //op con imagenes compuestas
 document.getElementById("op-addimg").addEventListener('click', sumaImg, false);
 //op con efectos
-document.getElementById("op-rain").addEventListener('click', flotante, false);
+document.getElementById("op-particula").addEventListener('click', particulasflotante, false);
 document.getElementById("op-rain2").addEventListener('click', rain, false);
 //op con texto.
 document.getElementById("op-text").addEventListener('click', textEfects, false);
